@@ -12,3 +12,46 @@
   body { background: var(--background); color: var(--foreground); -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
 }
+
+/* Responsive project grid */
+.project-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 640px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px !important;
+  }
+}
+
+/* Responsive about section */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 640px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* Responsive section padding */
+@media (min-width: 1024px) {
+  nav,
+  section,
+  footer {
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+  }
+}
+@media (min-width: 1280px) {
+  nav,
+  section,
+  footer {
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+  }
+}
