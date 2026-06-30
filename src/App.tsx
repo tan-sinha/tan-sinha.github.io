@@ -300,16 +300,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     >
       {/* Tile */}
       <div style={{
-        background: "#fff",
         borderRadius: 20,
         padding: "24px 12px 18px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         gap: 12,
-        border: "1px solid rgba(0,0,0,0.06)",
-        boxShadow: hovered ? "0 6px 28px rgba(0,0,0,0.08)" : "0 1px 6px rgba(0,0,0,0.04)",
-        transition: "box-shadow 0.2s ease",
       }}>
         <div style={{
           width: 68,
@@ -331,13 +327,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </span>
       </div>
 
-      {/* Glassmorphism hover popup — desktop only */}
+      {/* Hover popup — desktop only */}
       {project.active && !isMobile && (
         <div style={{
           position: "absolute",
           top: "50%",
           zIndex: 50,
-          width: 260,
+          width: 270,
           ...(col === 2 ? { right: "calc(100% + 12px)" } : { left: "calc(100% + 12px)" }),
           transform: hovered
             ? "translateY(-50%) translateX(0)"
@@ -347,29 +343,55 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           opacity: hovered ? 1 : 0,
           pointerEvents: hovered ? "auto" : "none",
           transition: "opacity 0.22s ease, transform 0.32s cubic-bezier(.22,1,.36,1)",
-          background: "rgba(255,255,255,0.82)",
-          backdropFilter: "blur(24px)",
-          WebkitBackdropFilter: "blur(24px)",
-          border: "1px solid rgba(255,255,255,0.7)",
-          borderRadius: 16,
-          padding: "18px",
-          boxShadow: "0 8px 40px rgba(0,0,0,0.13), inset 0 1px 0 rgba(255,255,255,0.95)",
+          background: "rgba(255,255,255,0.92)",
+          backdropFilter: "blur(28px)",
+          WebkitBackdropFilter: "blur(28px)",
+          border: "1px solid rgba(255,255,255,0.6)",
+          borderRadius: 20,
+          overflow: "hidden",
+          boxShadow: "0 12px 48px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.95)",
         }}>
-          <p style={{ fontFamily: "Inter, sans-serif", fontSize: "14px", fontWeight: 700, color: "#111", lineHeight: 1.2, marginBottom: 3 }}>{project.name}</p>
-          <p style={{ fontFamily: "Inter, sans-serif", fontSize: "11px", color: "#aaa", marginBottom: 9 }}>{project.tagline}</p>
-          <p style={{ fontFamily: "Inter, sans-serif", fontSize: "12px", color: "#555", lineHeight: 1.65, marginBottom: 12 }}>{project.description}</p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 14 }}>
-            {project.stack.map((t) => (
-              <span key={t} style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: project.gradient.from, background: `${project.gradient.from}1c`, padding: "2px 8px", borderRadius: 999, fontWeight: 500 }}>{t}</span>
-            ))}
+          {/* Gradient header band with icon */}
+          <div style={{
+            background: `linear-gradient(135deg, ${project.gradient.from}, ${project.gradient.to})`,
+            padding: "20px 18px 16px",
+            display: "flex",
+            alignItems: "center",
+            gap: 12,
+          }}>
+            <div style={{
+              width: 44,
+              height: 44,
+              borderRadius: 12,
+              background: "rgba(255,255,255,0.22)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+            }}>
+              <ProjectIcon size={22} color="rgba(255,255,255,0.95)" />
+            </div>
+            <div>
+              <p style={{ fontFamily: "Inter, sans-serif", fontSize: "13px", fontWeight: 700, color: "#fff", lineHeight: 1.2, marginBottom: 2 }}>{project.name}</p>
+              <p style={{ fontFamily: "Inter, sans-serif", fontSize: "10px", color: "rgba(255,255,255,0.78)", lineHeight: 1.3 }}>{project.tagline}</p>
+            </div>
           </div>
-          <div style={{ display: "flex", gap: 14 }}>
-            <a href={project.github} style={{ display: "flex", alignItems: "center", gap: 4, fontFamily: "Inter, sans-serif", fontSize: "11px", color: "#222", fontWeight: 500 }}>
-              <Github size={12} strokeWidth={2} /> GitHub
-            </a>
-            <a href={project.live} style={{ display: "flex", alignItems: "center", gap: 4, fontFamily: "Inter, sans-serif", fontSize: "11px", color: project.gradient.from, fontWeight: 600 }}>
-              <ArrowUpRight size={12} strokeWidth={2} /> Live
-            </a>
+          {/* Content */}
+          <div style={{ padding: "14px 18px 16px" }}>
+            <p style={{ fontFamily: "Inter, sans-serif", fontSize: "12px", color: "#555", lineHeight: 1.65, marginBottom: 12 }}>{project.description}</p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 14 }}>
+              {project.stack.map((t) => (
+                <span key={t} style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: project.gradient.from, background: `${project.gradient.from}1c`, padding: "2px 8px", borderRadius: 999, fontWeight: 500 }}>{t}</span>
+              ))}
+            </div>
+            <div style={{ display: "flex", gap: 14 }}>
+              <a href={project.github} style={{ display: "flex", alignItems: "center", gap: 4, fontFamily: "Inter, sans-serif", fontSize: "11px", color: "#222", fontWeight: 500 }}>
+                <Github size={12} strokeWidth={2} /> GitHub
+              </a>
+              <a href={project.live} style={{ display: "flex", alignItems: "center", gap: 4, fontFamily: "Inter, sans-serif", fontSize: "11px", color: project.gradient.from, fontWeight: 600 }}>
+                <ArrowUpRight size={12} strokeWidth={2} /> Live
+              </a>
+            </div>
           </div>
         </div>
       )}
@@ -438,7 +460,7 @@ export default function App() {
         WebkitBackdropFilter: "blur(16px)",
         borderBottom: "1px solid rgba(0,0,0,0.05)",
       }}>
-        <span style={{ fontFamily: "Inter, sans-serif", fontSize: "13px", fontWeight: 600, color: "#111", letterSpacing: "0.01em", whiteSpace: "nowrap" }}>
+        <span style={{ fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 600, color: "#111", letterSpacing: "0.01em", whiteSpace: "nowrap" }}>
           Tanishaa Sinha
         </span>
         <div style={{ display: "flex", alignItems: "center", gap: "18px" }}>
@@ -456,7 +478,7 @@ export default function App() {
           <h1 style={{
             fontFamily: "'Chakra Petch', sans-serif",
             fontWeight: 700,
-            fontSize: "clamp(44px, 8vw, 96px)",
+            fontSize: "clamp(37px, 6.8vw, 82px)",
             lineHeight: 0.95,
             color: "#111",
             letterSpacing: "-0.02em",
@@ -472,7 +494,7 @@ export default function App() {
           </h1>
           <p style={{
             fontFamily: "Inter, sans-serif",
-            fontSize: "clamp(16px, 2.5vw, 22px)",
+            fontSize: "clamp(14px, 2.1vw, 19px)",
             fontWeight: 400,
             color: "#888",
             maxWidth: "560px",
@@ -501,15 +523,15 @@ export default function App() {
       {/* ── About ── */}
       <section style={{ padding: "0 24px 96px", width: "100%" }}>
         <RevealSection>
-          <p style={{ fontFamily: "'Chakra Petch', sans-serif", fontSize: "11px", fontWeight: 600, color: "#bbb", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "28px" }}>
+          <p style={{ fontFamily: "'Chakra Petch', sans-serif", fontSize: "16px", fontWeight: 600, color: "#bbb", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "28px" }}>
             About
           </p>
           <div className="about-grid">
             <div>
-              <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(14px, 1.5vw, 16px)", color: "#222", lineHeight: 1.75, marginBottom: "16px" }}>
+              <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(17px, 1.9vw, 20px)", color: "#222", lineHeight: 1.75, marginBottom: "16px" }}>
                 I'm curious about the systems behind everyday technology — how products are built, how they influence behaviour, and what happens inside the machine most people never see.
               </p>
-              <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(13px, 1.5vw, 15px)", color: "#999", lineHeight: 1.75 }}>
+              <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(15px, 1.7vw, 18px)", color: "#999", lineHeight: 1.75 }}>
                 When I'm not building, I'm usually breaking something apart to understand how it works — or thinking about why people use technology the way they do.
               </p>
             </div>
