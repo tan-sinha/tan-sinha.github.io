@@ -308,9 +308,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         gap: 12,
       }}>
         <div style={{
-          width: 68,
-          height: 68,
-          borderRadius: 20,
+          width: 82,
+          height: 82,
+          borderRadius: 22,
           background: `linear-gradient(135deg, ${project.gradient.from}, ${project.gradient.to})`,
           display: "flex",
           alignItems: "center",
@@ -320,7 +320,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           transition: "transform 0.45s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease",
           flexShrink: 0,
         }}>
-          <ProjectIcon size={28} color="rgba(255,255,255,0.92)" />
+          <ProjectIcon size={34} color="rgba(255,255,255,0.92)" />
         </div>
         <span style={{ fontFamily: "Inter, sans-serif", fontSize: "11px", fontWeight: 600, color: project.active ? "#222" : "#bbb", textAlign: "center", lineHeight: 1.3 }}>
           {project.name}
@@ -333,7 +333,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           position: "absolute",
           top: "50%",
           zIndex: 50,
-          width: 270,
+          width: 210,
           ...(col === 2 ? { right: "calc(100% + 12px)" } : { left: "calc(100% + 12px)" }),
           transform: hovered
             ? "translateY(-50%) translateX(0)"
@@ -351,33 +351,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           overflow: "hidden",
           boxShadow: "0 12px 48px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.95)",
         }}>
-          {/* Gradient header band with icon */}
-          <div style={{
-            background: `linear-gradient(135deg, ${project.gradient.from}, ${project.gradient.to})`,
-            padding: "20px 18px 16px",
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-          }}>
-            <div style={{
-              width: 44,
-              height: 44,
-              borderRadius: 12,
-              background: "rgba(255,255,255,0.22)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
-            }}>
-              <ProjectIcon size={22} color="rgba(255,255,255,0.95)" />
-            </div>
-            <div>
-              <p style={{ fontFamily: "Inter, sans-serif", fontSize: "13px", fontWeight: 700, color: "#fff", lineHeight: 1.2, marginBottom: 2 }}>{project.name}</p>
-              <p style={{ fontFamily: "Inter, sans-serif", fontSize: "10px", color: "rgba(255,255,255,0.78)", lineHeight: 1.3 }}>{project.tagline}</p>
-            </div>
-          </div>
           {/* Content */}
-          <div style={{ padding: "14px 18px 16px" }}>
+          <div style={{ padding: "14px 16px 14px" }}>
             <p style={{ fontFamily: "Inter, sans-serif", fontSize: "12px", color: "#555", lineHeight: 1.65, marginBottom: 12 }}>{project.description}</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 14 }}>
               {project.stack.map((t) => (
@@ -478,7 +453,7 @@ export default function App() {
           <h1 style={{
             fontFamily: "'Chakra Petch', sans-serif",
             fontWeight: 700,
-            fontSize: "clamp(37px, 6.8vw, 82px)",
+            fontSize: "clamp(46px, 8.5vw, 103px)",
             lineHeight: 0.95,
             color: "#111",
             letterSpacing: "-0.02em",
@@ -494,7 +469,7 @@ export default function App() {
           </h1>
           <p style={{
             fontFamily: "Inter, sans-serif",
-            fontSize: "clamp(14px, 2.1vw, 19px)",
+            fontSize: "clamp(18px, 2.6vw, 24px)",
             fontWeight: 400,
             color: "#888",
             maxWidth: "560px",
