@@ -301,7 +301,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       {/* Tile */}
       <div style={{
         borderRadius: 20,
-        padding: "24px 12px 18px",
+        padding: "12px 6px 9px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -352,7 +352,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           boxShadow: "0 12px 48px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.95)",
         }}>
           {/* Content */}
-          <div style={{ padding: "14px 16px 14px" }}>
+          <div style={{ padding: "7px 8px 7px" }}>
             <p style={{ fontFamily: "Inter, sans-serif", fontSize: "12px", color: "#555", lineHeight: 1.65, marginBottom: 12 }}>{project.description}</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 14 }}>
               {project.stack.map((t) => (
@@ -483,7 +483,7 @@ export default function App() {
       {/* ── Projects ── */}
       <section style={{ padding: "0 24px 80px", width: "100%" }}>
         <RevealSection>
-          <p style={{ fontFamily: "'Chakra Petch', sans-serif", fontSize: "11px", fontWeight: 600, color: "#bbb", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "28px" }}>
+          <p style={{ fontFamily: "'Chakra Petch', sans-serif", fontSize: "16px", fontWeight: 600, color: "#bbb", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "28px" }}>
             Projects
           </p>
         </RevealSection>
